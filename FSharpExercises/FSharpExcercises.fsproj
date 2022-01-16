@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Helpers.fs" />
+    <Compile Include="ExercisesUnit2.fs" />
+    <Compile Include="ExercisesUnit3.fs" />
+    <Compile Include="ExercisesUnit4.fs" />
+    <Compile Include="ExercisesUnit5.fs" />
+    <Compile Include="RomanNumerals.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.0" />
+  </ItemGroup>
+</Project>
