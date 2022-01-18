@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	xmlns="http://schema.picoe.ca/eto.forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:CalculatorAppXeto;assembly=CalculatorAppXeto"
+	Title="My Calculator"
+	MinimumSize="200,200"
+	Padding="10"
+	>
+	<StackLayout>
+		<StackLayoutItem HorizontalAlignment="Stretch">
+			<TextBox ID="display" TextAlignment="Right" ReadOnly="true" />
+		</StackLayoutItem>
+		<StackLayout Orientation="Horizontal">
+			<Button Text="7" Click="HandleClick" />
+			<Button Text="8" Click="HandleClick" />
+			<Button Text="9" Click="HandleClick" />
+			<Button Text="*" Click="HandleClick" />
+		</StackLayout>
+	</StackLayout>
+</Form>
