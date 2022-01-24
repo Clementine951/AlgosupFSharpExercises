@@ -19,7 +19,7 @@ let webApiApp =
     |> Remoting.fromValue RemotingApi.api
     |> Remoting.buildHttpHandler
 
-let webHtmlApp =
+let webApp =
     choose [
         GET >=>
             choose [
@@ -35,7 +35,7 @@ let configureApp (app : IApplicationBuilder) =
         app.UseDeveloperExceptionPage()
     | false -> app)
         .UseStaticFiles()
-        .UseGiraffe(webHtmlApp)
+        .UseGiraffe(webApp)
 
 let configureServices (services : IServiceCollection) =
     services.AddGiraffe() |> ignore
