@@ -51,7 +51,8 @@ let view (model: ClientModel.Model) (dispatch: ClientModel.Msg -> unit) =
             Bulma.container [
                 Bulma.title [
                     text.hasTextCentered
-                    prop.text "Algosup F# Web Demos"
+                    prop.text "E-BuyrZ"
+                    prop.style [style.width 300]
                 ]
 
                 BrowserRouter [] [
@@ -60,6 +61,7 @@ let view (model: ClientModel.Model) (dispatch: ClientModel.Msg -> unit) =
                         Route [Path "/search"] [ Search.view model dispatch]
                         Route [Path "/"] [Index.view model dispatch]
                         Route [Path "/items"] [str "itmes page"]
+                        
                     ]
                 ]
             ]

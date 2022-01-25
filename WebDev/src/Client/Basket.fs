@@ -15,7 +15,7 @@ let view (model: Model) (dispatch: Msg -> unit) =
                     prop.children [
                         Bulma.input.text [
                             prop.value model.Input
-                            prop.placeholder "What are you looking for?"
+                            prop.placeholder "What are you lookiiiiiiiiiiiiing for?"
                             prop.onChange (fun x -> SetInput x |> dispatch)
                             prop.style  [style.width 980]
                         ]
