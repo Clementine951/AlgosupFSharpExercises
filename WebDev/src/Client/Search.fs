@@ -36,6 +36,7 @@ let view (model: Model) (dispatch: Msg -> unit) =
                 Html.img [ prop.src (List.head item.Images); prop.style [style.height 300] ]
             // Html.p [ prop.text item.Name ]
             Html.button [ prop.text "Add to basket" ]
+            Html.input [ prop.text item.Price ]
             // Html.p [ prop.text item.Description ]
         ]
    ]
