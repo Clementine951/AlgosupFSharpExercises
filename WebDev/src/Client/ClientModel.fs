@@ -4,11 +4,15 @@ open Elmish
 open Fable.Remoting.Client
 open EBuyrZ.Shared
 
-type Model = { Items: Item list; Input: string }
+type Model =
+    { SearchInput: string
+      SearchResultItems: Item list;
+      FrontPageItems: Item list }
 
 type Msg =
-    | GotItems of Item list
-    | SetInput of string
+    | GotSearchResultItems of Item list
+    | GotFrontPageItems of Item list
+    | SetSearchInput of string
     | Search
 
 let itemsApi =
@@ -17,20 +21,25 @@ let itemsApi =
     |> Remoting.buildProxy<IApi>
 
 let init () : Model * Cmd<Msg> =
-    let model = { Items = []; Input = "" }
+    let model =
+        { SearchResultItems = [];
+          SearchInput = ""
+          FrontPageItems = [] }
 
-    let cmd = Cmd.none
+    let cmd =
+        Cmd.OfAsync.perform itemsApi.getFrontPageItems () GotFrontPageItems
 
     model, cmd
 
 let update (msg: Msg) (model: Model) : Model * Cmd<Msg> =
     match msg with
-    | GotItems items -> { model with Items = items }, Cmd.none
-    | SetInput value -> { model with Input = value }, Cmd.none
+    | GotSearchResultItems items -> { model with SearchResultItems = items }, Cmd.none
+    | GotFrontPageItems items -> { model with FrontPageItems = items }, Cmd.none
+    | SetSearchInput value -> { model with SearchInput = value }, Cmd.none
     | Search ->
 
         let cmd =
-            Cmd.OfAsync.perform itemsApi.searchItems model.Input GotItems
+            Cmd.OfAsync.perform itemsApi.searchItems model.SearchInput GotSearchResultItems
 
-        { model with Input = "" }, cmd
+        { model with SearchInput = "" }, cmd
 

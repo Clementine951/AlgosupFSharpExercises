@@ -14,16 +14,16 @@ let view (model: Model) (dispatch: Msg -> unit) =
                     control.isExpanded
                     prop.children [
                         Bulma.input.text [
-                            prop.value model.Input
+                            prop.value model.SearchInput
                             prop.placeholder "What are you looking for?"
-                            prop.onChange (fun x -> SetInput x |> dispatch)
+                            prop.onChange (fun x -> SetSearchInput x |> dispatch)
                         ]
                     ]
                 ]
                 Bulma.control.p [
                     Bulma.button.a [
                         color.isPrimary
-                        prop.disabled (Search.isValid model.Input |> not)
+                        prop.disabled (Search.isValid model.SearchInput |> not)
                         prop.onClick (fun _ -> dispatch Search)
                         prop.text "Search"
                     ]
@@ -31,10 +31,10 @@ let view (model: Model) (dispatch: Msg -> unit) =
             ]
         ]
         Bulma.control.p [
-        for item in model.Items do
-            if item.Images.IsEmpty |> not then
-                Html.img [ prop.src (List.head item.Images) ]
-            Html.p [ prop.text item.Name ]
-            Html.p [ prop.text item.Description ]
+            for item in model.SearchResultItems do
+                if item.Images.IsEmpty |> not then
+                    Html.img [ prop.src (List.head item.Images) ]
+                Html.p [ prop.text item.Name ]
+                Html.p [ prop.text item.Description ]
         ]
    ]

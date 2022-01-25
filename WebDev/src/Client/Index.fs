@@ -16,6 +16,14 @@ let view (model: Model) (dispatch: Msg -> unit) =
                     Html.li [ Html.a [  prop.href "/views/json-demo"; prop.text "Json View"]  ]
                     Html.li [ Link [To (!^ "/search")] [str "Search"] ]
             ]
+            Bulma.control.p [
+                for item in model.FrontPageItems do
+                    if item.Images.IsEmpty |> not then
+                        Html.img [ prop.src (List.head item.Images) ]
+                    Html.p [ prop.text item.Name ]
+                    Html.p [ prop.text item.Description ]
+            ]
+
         ]
     ]
 
