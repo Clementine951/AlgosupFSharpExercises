@@ -33,7 +33,7 @@ let view (model: Model) (dispatch: Msg -> unit) =
         Bulma.control.p [
         for item in model.Items do
             if item.Images.IsEmpty |> not then
-                Html.img [ prop.src (List.head item.Images); prop.style [style.height 400] ]
+                Html.img [ prop.src (List.head item.Images); prop.style [style.height 300] ]
             Html.p [ prop.text item.Name ]
             Html.p [ prop.text item.Description ]
             // Html.p [ prop.text item.Price ]
