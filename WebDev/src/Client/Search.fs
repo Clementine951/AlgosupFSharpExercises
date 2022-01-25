@@ -53,6 +53,4 @@ let view (model: Model) (dispatch: Msg -> unit) =
                 ]
                 
         ]
-        
-    ] 
-    prop.style [style.display inline]
+    ]
