@@ -15,6 +15,7 @@ let view (model: Model) (dispatch: Msg -> unit) =
                     Html.li [ Html.a [  prop.href "/views/html-demo"; prop.text "Html View"]  ]
                     Html.li [ Html.a [  prop.href "/views/json-demo"; prop.text "Json View"]  ]
                     Html.li [ Link [To (!^ "/search")] [str "Search"] ]
+                    Html.li [ Link [To (!^ "/items")] [str "Items"] ]
             ]
         ]
     ]

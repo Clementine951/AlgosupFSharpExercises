@@ -59,6 +59,7 @@ let view (model: ClientModel.Model) (dispatch: ClientModel.Msg -> unit) =
                     Switch [] [
                         Route [Path "/search"] [ Search.view model dispatch]
                         Route [Path "/"] [Index.view model dispatch]
+                        Route [Path "/items"] [str "itmes page"]
                     ]
                 ]
             ]
