@@ -36,5 +36,6 @@ let view (model: Model) (dispatch: Msg -> unit) =
                 Html.img [ prop.src (List.head item.Images) ]
             Html.p [ prop.text item.Name ]
             Html.p [ prop.text item.Description ]
+            Html.button [ prop.text "Add to basket" ]
         ]
    ]
